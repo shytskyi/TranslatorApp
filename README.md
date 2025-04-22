@@ -17,7 +17,7 @@ A sample ASP.NET Core MVC application with a three‑layer architecture (DAL, BL
    GO
 
 2. **Clone the repository**
-   git clone https://github.com/shytskyi/test_1.git
+   git clone https://github.com/shytskyi/TranslatorApp.git
    cd TranslatorApp
    
 4. **Configure your connection string**
