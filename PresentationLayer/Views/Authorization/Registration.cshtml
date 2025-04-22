@@ -1,0 +1,26 @@
+﻿@using BusinessLogicLayer.Models.DTO
+@model UserViewModel
+
+@{
+    ViewData["Title"] = "Create user";
+}
+
+<h2>@ViewData["Title"]</h2>
+
+<form asp-action="Registration" method="post">
+    <div asp-validation-summary="All" class="text-danger"></div>
+    <input asp-for="RoleId" type="hidden" />
+    <div class="form-group">
+        <label asp-for="Email"></label>
+        <input asp-for="Email" class="form-control" />
+        <span asp-validation-for="Email" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Password"></label>
+        <input asp-for="Password" class="form-control" />
+        <span asp-validation-for="Password" class="text-danger"></span>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Create and Log in</button>
+</form>

@@ -1,0 +1,18 @@
+﻿@model Domain.User
+
+@{
+    ViewData["Title"] = "Delete confirmation";
+}
+
+<h2>@ViewData["Title"]</h2>
+
+<div class="alert alert-warning">
+    Are you sure you want to delete the user? <strong>@Model.Email</strong>?
+</div>
+
+<form asp-action="Delete" asp-route-id="@Model.Id" method="post">
+    @Html.AntiForgeryToken()
+
+    <button type="submit" class="btn btn-danger">Yes</button>
+    <a asp-action="Index" class="btn btn-secondary">No</a>
+</form>

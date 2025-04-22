@@ -1,0 +1,43 @@
+﻿@model IEnumerable<Domain.User>
+
+@{
+    ViewData["Title"] = "User management";
+}
+
+<h1>@ViewData["Title"]</h1>
+
+<a asp-action="Create" class="btn btn-primary float-right">
+    Create new user
+</a>
+<a asp-controller="ApplicationLog" asp-action="Index" class="btn btn-primary float-right">
+    Filtering data logs
+</a>
+
+
+<h2>Users:</h2>
+<table class="table">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Email</th>
+            <th>Password</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var u in Model)
+        {
+            <tr>
+                <td>@u.Id</td>
+                <td>@u.Email</td>
+                <td>@u.Password</td>
+                <td>
+                    @* <a asp-action="Details" asp-route-id="@u.Id">Details</a> | *@
+                    <a asp-action="ChangePassword" asp-route-id="@u.Id">Change Password</a> |
+                    <a asp-action="Edit" asp-route-id="@u.Id">Edit</a>    |
+                    <a asp-action="Delete" asp-route-id="@u.Id">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

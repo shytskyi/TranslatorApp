@@ -1,0 +1,38 @@
+﻿@model IEnumerable<Domain.ApplicationLog>
+
+@if (!Model.Any())
+{
+    <p class="text-muted">No logs in this date range.</p>
+}
+else
+{
+    <table class="table table-sm table-bordered">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Timestamp</th>
+                <th>Path</th>
+                <th>Method</th>
+                <th>Query</th>
+                <th>Request</th>
+                <th>Response</th>
+                <th>Status</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var log in Model)
+            {
+                <tr>
+                    <td>@log.Id</td>
+                    <td>@log.Timestamp</td>
+                    <td>@log.Path</td>
+                    <td>@log.Method</td>
+                    <td>@log.QueryString</td>
+                    <td>@log.RequestBody</td>
+                    <td>@log.ResponseBody</td>
+                    <td>@log.StatusCode</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}

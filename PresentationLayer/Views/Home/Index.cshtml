@@ -1,0 +1,26 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Speak leet — make sure your hacker hears you.</h1>
+</div>
+
+<form method="post" asp-action="Translate">
+    <div class="form-group">
+        <label for="originalText">Enter text to translate:</label>
+        <input type="text" class="form-control" id="originalText" name="originalText" value="" />
+    </div>
+    <button type="submit" class="btn btn-primary">Translate</button>
+</form>
+
+@if (Model != null && !string.IsNullOrEmpty(Model.ToString()))
+{
+    <h3>Translation:</h3>
+    <p>@Model</p>
+}
+
+@foreach (var error in ViewData.ModelState.Values.SelectMany(v => v.Errors))
+{
+    <div class="alert alert-danger">@error.ErrorMessage</div>
+}

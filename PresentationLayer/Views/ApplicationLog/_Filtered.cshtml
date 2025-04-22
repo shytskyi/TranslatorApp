@@ -1,0 +1,32 @@
+﻿@model IEnumerable<Domain.ApplicationLogByPathFilter>
+
+@if (!Model.Any())
+{
+    <p class="text-muted">No paged results.</p>
+}
+else
+{
+    <table class="table table-sm table-bordered">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Timestamp</th>
+                <th>Path</th>
+                <th>Method</th>
+                <th>Status</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var log in Model)
+            {
+                <tr>
+                    <td>@log.Id</td>
+                    <td>@log.Timestamp</td>
+                    <td>@log.Path</td>
+                    <td>@log.Method</td>
+                    <td>@log.StatusCode</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
